@@ -11,6 +11,11 @@ const game = {
       
     do {
       game.getGuess()
+      if (this.guess < this.biggestNum) {
+        window.prompt(`Lower! Previous guesses: ${this.prevGuesses}`)
+      } else if (this.guess > this.smallestNum){
+        window.prompt(`Higher! Previous guesses: ${this.prevGuesses}`)
+      } else 
       prevGuesses.push(this.guess)
     } while (this.guess !== this.secretNum)
   },
@@ -30,7 +35,8 @@ const game = {
 
 
   render(){
-    }
+
+  }
 }
 
 game.getGuess()
