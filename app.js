@@ -8,13 +8,20 @@ const game = {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum;
       return this.secretNum
-  },
-  getGuess: function(){
+    },
+  getGuess: function() {
     let guess = window.prompt(`Enter a guess between ${game.smallestNum} and ${game.biggestNum}`)
     guess = Number(guess)
-    return guess
+    while (guess > game.smallestNum && guess < game.biggestNum){
+      console.log(guess)
+      return guess
+    }
+    while (guess <= game.smallestNum || guess >= game.biggestNum){
+      
+    }
+    }
   }
-}
+
 
 console.log(game.play())
 game.getGuess()
