@@ -8,17 +8,21 @@ const game = {
   play() {
     this.secretNum = (Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum)
-    game.getGuess()  
+      console.log(this.secretNum)
+    game.getGuess()
+    this.prevGuesses.push(this.guess)  
     do {
       if (this.guess > this.secretNum) {
         this.guess = Number(window.prompt(`Lower! Previous guesses: ${this.prevGuesses}`))
       } else if (this.guess < this.secretNum){
         this.guess = Number(window.prompt(`Higher! Previous guesses: ${this.prevGuesses}`))
       } else {
-        this.guess = Number(window.prompt(`Correct! The secret number was ${this.secretNum}!`))
+        this.render()
+        break;
       }
       this.prevGuesses.push(this.guess)
     } while (this.guess !== this.secretNum)
+    
   },
   
   
@@ -36,7 +40,7 @@ const game = {
 
 
   render(){
-
+    console.log(`Correct! You guessed the number in ${this.prevGuesses.length} guess!`)
   }
 }
 
