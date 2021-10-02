@@ -5,6 +5,7 @@ const game = {
   secretNum: null,
   prevGuesses: [],
   guess: '',
+  result: '',
   play() {
     this.secretNum = (Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum)
@@ -13,11 +14,16 @@ const game = {
     this.prevGuesses.push(this.guess)  
     do {
       if (this.guess > this.secretNum) {
-        this.guess = Number(window.prompt(`Lower! Previous guesses: ${this.prevGuesses}`))
+        this.result = 'High'
+        this.render('incorrect')
+        // this.guess = Number(window.prompt(`Lower! Previous guesses: ${this.prevGuesses}`))
       } else if (this.guess < this.secretNum){
-        this.guess = Number(window.prompt(`Higher! Previous guesses: ${this.prevGuesses}`))
+        this.result = 'Low'
+        this.render('incorrect')
+        // this.guess = Number(window.prompt(`Higher! Previous guesses: ${this.prevGuesses}`))
       } else {
-        this.render()
+        this.result = 'correct'
+        this.render('correct')
         break;
       }
       this.prevGuesses.push(this.guess)
@@ -39,8 +45,12 @@ const game = {
     },
 
 
-  render(){
-    console.log(`Correct! You guessed the number in ${this.prevGuesses.length} guess!`)
+  render(str){
+    if (str === 'incorrect')
+    this.guess = window.prompt(`Your guess is too ${this.result}. Previous guesses: ${this.prevGuesses}`)
+    else if (str === 'correct') {
+    (`Congrats! You guessed the number in ${this.prevGuesses.length} guess!`)
+    }
   }
 }
 
