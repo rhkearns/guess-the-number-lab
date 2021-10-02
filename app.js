@@ -6,9 +6,8 @@ const game = {
   prevGuesses: [],
   play: function() {
     this.secretNum = Math.floor(Math.random() * 
-      (this.biggestNum - this.smallestNum + 1)) + this.smallestNum;
-      return this.secretNum
-    },
+      (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
+  }
   getGuess: function() {
     let guess;
     let guessTest = window.prompt(`Enter a guess between ${game.smallestNum} and ${game.biggestNum}`)
@@ -20,10 +19,9 @@ const game = {
     }
     console.log(guess)
     },
-    render: function(){
-
+  render: function(){
     }
-  }
+}
 
 
 console.log(game.play())
