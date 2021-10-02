@@ -10,18 +10,20 @@ const game = {
       return this.secretNum
     },
   getGuess: function() {
-    let guess = window.prompt(`Enter a guess between ${game.smallestNum} and ${game.biggestNum}`)
-    guess = Number(guess)
-    while (guess > game.smallestNum && guess < game.biggestNum){
-      console.log(guess)
-      return guess
+    let guess;
+    let guessTest = window.prompt(`Enter a guess between ${game.smallestNum} and ${game.biggestNum}`)
+    guessTest = Number(guessTest)
+    if (guessTest < game.smallestNum || guessTest > game.biggestNum){
+      window.prompt(`Try again: Enter a guess BETWEEN ${game.smallestNum} and ${game.biggestNum}`)
+    } else {
+      guess = guessTest
     }
-    while (guess <= game.smallestNum || guess >= game.biggestNum){
-      
-    }
+    console.log(guess)
+    },
+    render: function(){
+
     }
   }
 
 
 console.log(game.play())
-game.getGuess()
