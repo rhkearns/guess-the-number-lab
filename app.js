@@ -10,8 +10,9 @@ const game = {
       return this.secretNum
   },
   getGuess: function(){
-    window.prompt(`Enter a guess between ${game.smallestNum} and ${game.biggestNum}`)
-
+    let guess = window.prompt(`Enter a guess between ${game.smallestNum} and ${game.biggestNum}`)
+    guess = Number(guess)
+    return guess
   }
 }
 
