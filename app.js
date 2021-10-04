@@ -9,18 +9,15 @@ const game = {
   play() {
     this.secretNum = (Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum)
-      //console.log(this.secretNum)
     game.getGuess()
     this.prevGuesses.push(this.guess)  
     do {
       if (this.guess > this.secretNum) {
         this.result = 'High'
         this.render('incorrect')
-        // this.guess = Number(window.prompt(`Lower! Previous guesses: ${this.prevGuesses}`))
       } else if (this.guess < this.secretNum){
         this.result = 'Low'
         this.render('incorrect')
-        // this.guess = Number(window.prompt(`Higher! Previous guesses: ${this.prevGuesses}`))
       } else {
         this.result = 'correct'
         this.render('correct')
@@ -40,7 +37,6 @@ const game = {
       guessTest = Number(guessTest)
     } 
     this.guess = guessTest
-    //console.log(this.guess)
     return this.guess
     },
 
