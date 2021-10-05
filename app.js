@@ -10,7 +10,7 @@ const game = {
     this.setRange()
 
     this.secretNum = (Math.floor(Math.random() * 
-      (this.biggestNum - this.smallestNum +1)) + this.smallestNum)
+      (this.biggestNum - this.smallestNum + 1)) + this.smallestNum)
 
     do {
       //game.getGuess()
